@@ -4,7 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Welcome to Book Archive Website</title>
+    <!-- bootstrap cdn link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
   </head>
-  <body></body>
+  <body class="bg-light">
+    <!-- search box start here -->
+    <section class="container">
+      <div class="input-group my-4 w-50 mx-auto">
+        <input
+          id="search-input"
+          type="text"
+          class="form-control"
+          placeholder="Search your favourite book"
+        />
+        <button
+          onclick="loadData()"
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          Button
+        </button>
+      </div>
+    </section>
+    <!-- search box end here -->
+    <div id="result-found" class="text-success text-center py-3"></div>
+    <!-- show error message -->
+    <div id="error" class="text-center text-success"></div>
+
+    <!-- eror handel -->
+    <div id="handel-err"></div>
+
+    <!-- Spinner -->
+
+    <!-- start search result container  -->
+    <section class="container">
+      <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4"></div>
+    </section>
+    <!-- end search result container  -->
+    <!-- main js file here -->
+    <script src="./main.js"></script>
+  </body>
 </html>

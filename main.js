@@ -25,6 +25,7 @@ const loadData = () => {
 };
 
 const displayData = (books) => {
+  console.log(books);
   //  clear
   errorDiv.innerText = "";
   searchResult.textContent = "";
@@ -46,5 +47,4 @@ const displayData = (books) => {
       `;
     searchResult.appendChild(div);
   });
-  //   }
 };

@@ -30,7 +30,7 @@ const loadData = () => {
   fetch(`https://openlibrary.org/search.json?q=${searchText}`)
     .then((res) => res.json())
     .then((data) => {
-      resultFound.innerText = `${data.numFound} Result Found`;
+      resultFound.innerText = `Search Result Found : ${data.numFound}`;
       displayData(data.docs.slice(0, 25));
     })
     .finally(() => (searchInput.value = ""));

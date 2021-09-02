@@ -27,7 +27,7 @@ const loadData = () => {
     return;
   }
   // fetching data from api
-  fetch(`http://openlibrary.org/search.json?q=${searchText}`)
+  fetch(`https://openlibrary.org/search.json?q=${searchText}`)
     .then((res) => res.json())
     .then((data) => displayData(data.docs.slice(0, 25)))
     .finally(() => (searchInput.value = ""));

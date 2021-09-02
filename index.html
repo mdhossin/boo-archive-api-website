@@ -22,58 +22,65 @@
     }
   </style>
   <body class="bg-light">
-    <!-- search box start here -->
-    <section class="container">
-      <h1 class="text-center text-success my-3 fw-bold">
-        Search your favourite books
-      </h1>
-      <div class="input-group my-4 w-50 mx-auto">
-        <input
-          id="search-input"
-          type="text"
-          class="form-control"
-          placeholder="Search your favourite book"
-        />
-        <button
-          onclick="loadData()"
-          class="btn btn-outline-secondary"
-          type="button"
-          id="button-addon2"
-        >
-          Search
-        </button>
-      </div>
-    </section>
-    <!-- search box end here -->
-    <section class="container">
-      <!-- total result count of books -->
-      <div
-        id="result-found"
-        class="text-success text-center pb-4 fs-2 fw-bold"
-      ></div>
-      <hr />
-      <!-- show error message when you just click btn  -->
-      <div id="error" class="text-center text-danger fs-2 fw-bold"></div>
-
-      <!-- when loading data showing spiners -->
-      <div id="spinner" class="text-center">
-        <div class="spinner-grow" role="status">
-          <span class="visually-hidden">Loading...</span>
+    <header>
+      <section class="container">
+        <h1 class="text-center text-success my-3 fw-bold">
+          Search your favourite books
+        </h1>
+        <!-- search box start here -->
+        <div class="input-group my-4 w-50 mx-auto">
+          <input
+            id="search-input"
+            type="text"
+            class="form-control"
+            placeholder="Search your favourite book"
+          />
+          <button
+            onclick="loadData()"
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            Search
+          </button>
         </div>
-      </div>
-      <!-- if input value did not match show the message -->
-      <div id="error-handel" class="text-center text-danger fs-2 fw-bold">
-        Search item didn't match
-      </div>
+      </section>
+      <!-- search box end here -->
+    </header>
+
+    <main>
+      <section class="container">
+        <!-- total result count of books -->
+        <div
+          id="result-found"
+          class="text-success text-center pb-4 fs-2 fw-bold"
+        ></div>
+        <hr />
+        <!-- show error message when you just click btn  -->
+        <div id="error" class="text-center text-danger fs-2 fw-bold"></div>
+
+        <!-- when loading data showing spiners -->
+        <div id="spinner" class="text-center">
+          <div class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <!-- if search value did not match display this message -->
+        <div id="error-handel" class="text-center text-danger fs-2 fw-bold">
+          Search result didn't match...Please try again
+        </div>
+      </section>
+
       <!-- start search result container  -->
-    </section>
-    <section class="container">
-      <div
-        id="search-result"
-        class="row row-cols-1 row-cols-md-3 g-4 mt-3"
-      ></div>
-    </section>
-    <!-- end search result container  -->
+      <section class="container">
+        <div
+          id="search-result"
+          class="row row-cols-1 row-cols-md-3 g-4 mt-3"
+        ></div>
+      </section>
+      <!-- end search result container  -->
+    </main>
+
     <!-- main js file here -->
     <script src="./main.js"></script>
   </body>

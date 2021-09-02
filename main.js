@@ -1,13 +1,13 @@
+// delare gloabl variable
 const searchInput = document.getElementById("search-input");
 const searchResult = document.getElementById("search-result");
 const errorDiv = document.getElementById("error");
 const resultFound = document.getElementById("result-found");
-
+// add spinners
 const spinners = (displayNone) => {
   document.getElementById("spinner").style.display = displayNone;
 };
-// when click the button load data
-
+// search result not found display this message
 const errorData = (displayStyle) => {
   document.getElementById("error-handel").style.display = displayStyle;
 };

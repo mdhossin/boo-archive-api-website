@@ -16,7 +16,6 @@ const loadData = () => {
   errorData("none");
   spinners("block");
   const searchText = searchInput.value;
-  //   console.log(searchText);
   resultFound.innerText = "";
   resultFound.innerText = "";
   searchResult.textContent = "";
@@ -44,12 +43,9 @@ const displayData = (books) => {
     errorData("block");
     spinners("none");
   }
-
   errorDiv.innerText = "";
   searchResult.textContent = "";
-
   books?.forEach((book) => {
-    console.log(book);
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `

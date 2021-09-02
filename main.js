@@ -20,6 +20,7 @@ const loadData = () => {
   resultFound.innerText = "";
   resultFound.innerText = "";
   searchResult.textContent = "";
+  errorDiv.innerText = "";
   if (searchText === "") {
     errorDiv.innerText = "Search field can not be empty";
     errorData("none");
@@ -29,7 +30,10 @@ const loadData = () => {
   // fetching data from api
   fetch(`https://openlibrary.org/search.json?q=${searchText}`)
     .then((res) => res.json())
-    .then((data) => displayData(data.docs.slice(0, 25)))
+    .then((data) => {
+      resultFound.innerText = `${data.numFound} Result Found`;
+      displayData(data.docs.slice(0, 25));
+    })
     .finally(() => (searchInput.value = ""));
 };
 
@@ -40,34 +44,35 @@ const displayData = (books) => {
     errorData("block");
     spinners("none");
   }
-  let sum = 1;
-  for (let i = 0; i < books.length; i++) {
-    const element = i;
-    console.log(element);
-    resultFound.innerText = `${sum + i} Result Found`;
-    spinners("none");
-  }
+
   errorDiv.innerText = "";
   searchResult.textContent = "";
 
   books?.forEach((book) => {
+    console.log(book);
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
         <div class="card h-100 shadow">
             <img height="350" src="${`https://covers.openlibrary.org/b/id/${
-              book?.cover_i ? book.cover_i : ""
+              book.cover_i ? book.cover_i : "Not found"
             }-M.jpg`}" alt="Book Image" />
             <div class="card-body">
-              <h2 class="card-title">${book?.title ? book?.title : ""}</h2>
+              <h2 class="card-title">${
+                book.title ? book.title : "Not found"
+              }</h2>
               <h5 class ="fw-bold">${
-                book?.author_name[0] ? book?.author_name[0] : ""
+                book.author_name ? book.author_name.slice(0, 1) : "Not found"
               }</h5>
               <p class="card-text"> Frist publish year :
-                ${book?.first_publish_year ? book?.first_publish_year : ""}
+                ${
+                  book.first_publish_year
+                    ? book.first_publish_year
+                    : "Not found"
+                }
               </p>
               <p class="card-text text-primary fst-italic">Publiser : ${
-                book?.publisher[0] ? book?.publisher[0] : ""
+                book.publisher ? book.publisher.slice(0, 1) : "Not found"
               }</p>
             </div>
           </div>
